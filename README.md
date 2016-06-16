@@ -4,9 +4,9 @@ Build a docker image with ubuntu 14.04 and then we can build b2g OS in the conta
 
 ##### Build docker image
 
-Build a docker image and name it as 'build-image'.
+Build a docker image and name it as 'build-image' and version is 'v1'. If the version is not set, 'latest' will be used.
 ```sh
-docker build -t build-image .
+docker build -t build-image:v1 .
 ```
 
 ##### List docker imagea
@@ -19,7 +19,7 @@ docker images
 
 Simply start a container from docker image with name 'build-image', and name the container as 'build-b2g'. The name of the container need to be unique.
 ```sh
-docker run -it --name build-b2g build-image /bin/bash
+docker run -it --name build-b2g build-image:v1 /bin/bash
 ```
 
 Now a ubuntu 14.04 container is running and it is totally isolated with host system.
@@ -28,7 +28,7 @@ We can also add a new user in container to build projects (strongly recommended)
 
 Mount a local directory in container at start.
 ```sh
-docker run -v /path-in-local:/path-in-container -it --name build-b2g build-image /bin/bash
+docker run -v /path-in-local:/path-in-container -it --name build-b2g build-image:v1 /bin/bash
 ```
 Note: When a local directory is mounted in container, need to modify the uid,gid of user in container to the same as user in host who owns the directory. Otherwise there will be permissioin problem. 'uid and gid' can be modified in /etc/passwd and /etc/groups respectively.
 
