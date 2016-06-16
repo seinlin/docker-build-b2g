@@ -6,10 +6,12 @@ Build a docker image with ubuntu 14.04 and then we can build b2g OS in the conta
 
 Build a docker image and name it as 'build-image' and version is 'v1'. If the version is not set, 'latest' will be used.
 ```sh
+git clone https://github.com/seinlin/docker-build-b2g.git
+cd docker-build-b2g
 docker build -t build-image:v1 .
 ```
 
-##### List docker imagea
+##### List docker images
 
 ```sh
 docker images
