@@ -58,3 +58,8 @@ docker start build-b2g
 ```sh
 docker attach build-b2g
 ```
+#####  Commit change in container to image
+
+```sh
+docker commit build-b2g build-image:v2
+```
